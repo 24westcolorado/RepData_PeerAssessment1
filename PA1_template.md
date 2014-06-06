@@ -114,9 +114,9 @@ maxinterval <- actpat$interval[maxind]
 The 835th interval has the maximum value of the means across all the days in the dataset.  The maximum value is 206.1698.
 
 
-## Inputing missing values
+## Imputing missing values
 
-There are NA values in the data.  In this part of the report we input appropriate values for the missing values.   
+There are NA values in the data.  In this part of the report we impute appropriate values for the missing values.   
 
 ```r
 numNA  <- sum(as.numeric(is.na(data$steps)))
@@ -126,7 +126,7 @@ percNA <- round(numNA/dim(data)[1]*100,digits = 1)
 ```
 There are a total of 2304 NAs in the dataset.  These occur only in the steps column, and this constitutes 13.1 percent of the rows. 
 
-We fill-in any NAs by filling in the mean over all the days for given 5-minute interval. The filled in dataset is called data2, instead of data. 
+STRATEGY: We fill-in any NAs by filling in the mean over all the days for the given 5-minute interval. The filled in dataset is called data2, instead of data. 
 
 ```r
 data2        <- data                  # Copy of the data
@@ -263,7 +263,7 @@ plot(actpat_weekday$interval,
      type = "l",
      xlab = "Intervals",
      ylab = "Mean Number of Steps",
-     main = "Weekdaays")
+     main = "Weekdays")
 ```
 
 ![plot of chunk unnamed-chunk-10](figure/unnamed-chunk-10.png) 
